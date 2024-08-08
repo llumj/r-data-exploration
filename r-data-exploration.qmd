@@ -1,0 +1,47 @@
+---
+title: "r-data-exploration"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+library(skimr)
+library(GGally)
+library(ggplot2)
+
+# Explore data sets
+names(diamonds)
+
+dim(diamonds)
+
+summary(diamonds)
+
+head(diamonds)
+
+tail(diamonds)
+     
+```
+
+```{r}
+GGally::ggpairs(diamonds, 
+                ggplot2::aes(color = color))
+
+GGally::ggpairs(penguins, 
+                columns = 3:6, 
+                ggplot2::aes(color = species))
+
+
+
+```
+
+```{r}
+ggplot(diamonds, aes(x = carat,
+                     y = price)) + geom_point()
+```
+
+```{r}
+ggplot(diamonds, aes(x = carat, fill = "yellow")) + geom_histogram()
+```
+
